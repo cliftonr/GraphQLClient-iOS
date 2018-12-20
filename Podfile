@@ -18,6 +18,11 @@ target "GraphQLClient-iOS" do
   ### Scripts
   pod "SwiftGen"
 
+  script_phase :name => "Generate Constants",
+    :script => "${PROJECT_DIR}/Scripts/Build-Phase/generate-constants.sh",
+    :execution_position => :before_compile
+
+  ### Tests
   target "GraphQLClient-iOSTests" do
     inherit! :search_paths
 

@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		2B764F1B23B88A91BB42BC11 /* Pods_GraphQLClient_iOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5274688722F4B5E709183362 /* Pods_GraphQLClient_iOS.framework */; };
+		8435562B21CC40A2007A2DA2 /* FontFamily.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435562721CC40A2007A2DA2 /* FontFamily.swift */; };
+		8435562C21CC40A2007A2DA2 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435562821CC40A2007A2DA2 /* Asset.swift */; };
+		8435562D21CC40A2007A2DA2 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435562921CC40A2007A2DA2 /* Scene.swift */; };
+		8435562E21CC40A2007A2DA2 /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435562A21CC40A2007A2DA2 /* Segue.swift */; };
 		8435E21E21CC243D00A73525 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435E21D21CC243D00A73525 /* AppDelegate.swift */; };
 		8435E22921CC244000A73525 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8435E22821CC244000A73525 /* Assets.xcassets */; };
 		8435E22C21CC244000A73525 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8435E22A21CC244000A73525 /* LaunchScreen.storyboard */; };
@@ -35,6 +39,11 @@
 		38F93072845291370D00517E /* Pods-GraphQLClient-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphQLClient-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraphQLClient-iOS/Pods-GraphQLClient-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		5274688722F4B5E709183362 /* Pods_GraphQLClient_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraphQLClient_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8435561E21CC2B74007A2DA2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		8435562121CC33A6007A2DA2 /* generate-constants.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "generate-constants.sh"; sourceTree = "<group>"; };
+		8435562721CC40A2007A2DA2 /* FontFamily.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontFamily.swift; sourceTree = "<group>"; };
+		8435562821CC40A2007A2DA2 /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
+		8435562921CC40A2007A2DA2 /* Scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
+		8435562A21CC40A2007A2DA2 /* Segue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segue.swift; sourceTree = "<group>"; };
 		8435E21A21CC243D00A73525 /* GraphQLClient-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GraphQLClient-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8435E21D21CC243D00A73525 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8435E22821CC244000A73525 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -69,6 +78,57 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8435562021CC33A6007A2DA2 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				8435562321CC3C52007A2DA2 /* Build-Phase */,
+			);
+			path = Scripts;
+			sourceTree = "<group>";
+		};
+		8435562221CC3BF8007A2DA2 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				8435562821CC40A2007A2DA2 /* Asset.swift */,
+				8435562721CC40A2007A2DA2 /* FontFamily.swift */,
+				8435562921CC40A2007A2DA2 /* Scene.swift */,
+				8435562A21CC40A2007A2DA2 /* Segue.swift */,
+			);
+			path = Generated;
+			sourceTree = "<group>";
+		};
+		8435562321CC3C52007A2DA2 /* Build-Phase */ = {
+			isa = PBXGroup;
+			children = (
+				8435562121CC33A6007A2DA2 /* generate-constants.sh */,
+			);
+			path = "Build-Phase";
+			sourceTree = "<group>";
+		};
+		8435562421CC3D63007A2DA2 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				8435E22821CC244000A73525 /* Assets.xcassets */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		8435562521CC3D77007A2DA2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		8435562621CC3D93007A2DA2 /* Views & Strings */ = {
+			isa = PBXGroup;
+			children = (
+				8435E22A21CC244000A73525 /* LaunchScreen.storyboard */,
+				8435E24721CC269100A73525 /* HomeViewController.storyboard */,
+			);
+			path = "Views & Strings";
+			sourceTree = "<group>";
+		};
 		8435E21121CC243D00A73525 = {
 			isa = PBXGroup;
 			children = (
@@ -76,6 +136,7 @@
 				8435E21C21CC243D00A73525 /* Sources */,
 				8435E24121CC247400A73525 /* Resources */,
 				8435E23521CC244000A73525 /* Tests */,
+				8435562021CC33A6007A2DA2 /* Scripts */,
 				8435E21B21CC243D00A73525 /* Products */,
 				AF617326746B802EC9212B38 /* Pods */,
 				B347971BBB01DE5D08487ABD /* Frameworks */,
@@ -95,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				8435E21D21CC243D00A73525 /* AppDelegate.swift */,
+				8435562221CC3BF8007A2DA2 /* Generated */,
 				8435E24921CC285600A73525 /* View Controllers */,
 			);
 			path = Sources;
@@ -112,10 +174,10 @@
 		8435E24121CC247400A73525 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				8435E22821CC244000A73525 /* Assets.xcassets */,
-				8435E22A21CC244000A73525 /* LaunchScreen.storyboard */,
+				8435562621CC3D93007A2DA2 /* Views & Strings */,
+				8435562521CC3D77007A2DA2 /* Fonts */,
+				8435562421CC3D63007A2DA2 /* Images */,
 				8435E22D21CC244000A73525 /* Info.plist */,
-				8435E24721CC269100A73525 /* HomeViewController.storyboard */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -157,6 +219,7 @@
 			buildConfigurationList = 8435E23B21CC244000A73525 /* Build configuration list for PBXNativeTarget "GraphQLClient-iOS" */;
 			buildPhases = (
 				1F0352BEB23E48438B8CD88A /* [CP] Check Pods Manifest.lock */,
+				A19C2D6ADE9A362F924EF9D5 /* [CP-User] Generate Constants */,
 				8435E21621CC243D00A73525 /* Sources */,
 				8435E21721CC243D00A73525 /* Frameworks */,
 				8435E21821CC243D00A73525 /* Resources */,
@@ -339,6 +402,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-GraphQLClient-iOS/Pods-GraphQLClient-iOS-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		A19C2D6ADE9A362F924EF9D5 /* [CP-User] Generate Constants */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP-User] Generate Constants";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "${PROJECT_DIR}/Scripts/Build-Phase/generate-constants.sh\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -346,8 +424,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8435562B21CC40A2007A2DA2 /* FontFamily.swift in Sources */,
 				8435E24A21CC28EB00A73525 /* HomeViewController.swift in Sources */,
+				8435562D21CC40A2007A2DA2 /* Scene.swift in Sources */,
+				8435562C21CC40A2007A2DA2 /* Asset.swift in Sources */,
 				8435E24B21CC28EB00A73525 /* SetViewController.swift in Sources */,
+				8435562E21CC40A2007A2DA2 /* Segue.swift in Sources */,
 				8435E21E21CC243D00A73525 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
