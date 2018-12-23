@@ -1,4 +1,4 @@
-# node
+# Under certain circumstances, apollo-ios will attempt to install a version of the Apollo cli that it thinks it needs. When it does that, those files go into a node package in the root project directory. Let's just keep that from being added to the repo by accident:
 node_modules/
 
 # Xcode
