@@ -1,0 +1,23 @@
+query UserStudySets($creatorId: ID!) {
+
+    studySets(creatorId: $creatorId) {
+        ...baseModelFields
+
+        title
+        description
+    }
+}
+
+query StudySetDetails($setId: ID!) {
+
+    studySet(setId: $setId) {
+        ...baseModelFields
+
+        title
+        description
+        terms {
+            ...baseModelFields
+
+        }
+    }
+}

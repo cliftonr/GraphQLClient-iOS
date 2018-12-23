@@ -8,19 +8,20 @@ workspace "GraphQLClient-iOS"
 target "GraphQLClient-iOS" do
   project "GraphQLClient-iOS"
 
+  ### Internal pods
+  pod "Components", :path => "InternalPods/Components"
+  pod "DataService", :path => "InternalPods/DataService"
+
   ### Rx
   pod "RxCocoa"
+  pod "RxCoreData"
   pod "RxSwift"
 
   ### UI
   pod "SVProgressHUD"
 
-  ### Scripts
+  ### Tools
   pod "SwiftGen"
-
-  script_phase :name => "Generate Constants",
-    :script => "${PROJECT_DIR}/Scripts/Build-Phase/generate-constants.sh",
-    :execution_position => :before_compile
 
   ### Tests
   target "GraphQLClient-iOSTests" do
@@ -30,4 +31,9 @@ target "GraphQLClient-iOS" do
     pod "RxBlocking"
     pod "RxTest"
   end
+
+  ### Build scripts
+  script_phase :name => "Generate Constants",
+    :script => "${PROJECT_DIR}/Scripts/BuildPhase/GenerateConstants.sh",
+    :execution_position => :before_compile
 end

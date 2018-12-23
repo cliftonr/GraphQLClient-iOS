@@ -15,12 +15,19 @@ internal enum StoryboardScene {
   internal enum HomeViewController: StoryboardType {
     internal static let storyboardName = "HomeViewController"
 
-    internal static let homeViewController = SceneType<HomeViewController>(storyboard: HomeViewController.self, identifier: "HomeViewController")
+    internal static let homeViewController = SceneType<GraphQLClient_iOS.HomeViewController>(storyboard: HomeViewController.self, identifier: "HomeViewController")
   }
   internal enum LaunchScreen: StoryboardType {
     internal static let storyboardName = "LaunchScreen"
 
     internal static let initialScene = InitialSceneType<UIKit.UIViewController>(storyboard: LaunchScreen.self)
+  }
+  internal enum SetViewController: StoryboardType {
+    internal static let storyboardName = "SetViewController"
+
+    internal static let initialScene = InitialSceneType<GraphQLClient_iOS.SetViewController>(storyboard: SetViewController.self)
+
+    internal static let setViewController = SceneType<GraphQLClient_iOS.SetViewController>(storyboard: SetViewController.self, identifier: "SetViewController")
   }
 }
 // swiftlint:enable explicit_type_interface identifier_name line_length type_body_length type_name

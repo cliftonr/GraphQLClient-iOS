@@ -12,7 +12,7 @@
         <!--Home View Controller-->
         <scene sceneID="aMq-qI-svb">
             <objects>
-                <viewController storyboardIdentifier="HomeViewController" id="jx7-lE-h0L" customClass="HomeViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" id="jx7-lE-h0L" customClass="HomeViewController" customModule="GraphQLClient_iOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hrJ-mo-4Oe">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rYz-WN-0uT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-876" y="-220"/>
+            <point key="canvasLocation" x="-1553" y="-289"/>
         </scene>
     </scenes>
 </document>

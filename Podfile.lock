@@ -1,9 +1,23 @@
 PODS:
+  - Apollo (0.9.4):
+    - Apollo/Core (= 0.9.4)
+  - Apollo/Core (0.9.4)
+  - Components (0.1.0):
+    - RxCocoa
+    - RxSwift
+  - DataService (0.1.0):
+    - Apollo
+    - Components
+    - RxCocoa
+    - RxSwift
   - RxAtomic (4.4.0)
   - RxBlocking (4.4.0):
     - RxAtomic (~> 4.4)
     - RxSwift (~> 4.0)
   - RxCocoa (4.4.0):
+    - RxSwift (~> 4.0)
+  - RxCoreData (0.4.0):
+    - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
   - RxSwift (4.4.0):
     - RxAtomic (~> 4.4)
@@ -14,8 +28,11 @@ PODS:
   - SwiftGen (6.0.2)
 
 DEPENDENCIES:
+  - Components (from `InternalPods/Components`)
+  - DataService (from `InternalPods/DataService`)
   - RxBlocking
   - RxCocoa
+  - RxCoreData
   - RxSwift
   - RxTest
   - SVProgressHUD
@@ -23,23 +40,35 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - Apollo
     - RxAtomic
     - RxBlocking
     - RxCocoa
+    - RxCoreData
     - RxSwift
     - RxTest
     - SVProgressHUD
     - SwiftGen
 
+EXTERNAL SOURCES:
+  Components:
+    :path: InternalPods/Components
+  DataService:
+    :path: InternalPods/DataService
+
 SPEC CHECKSUMS:
+  Apollo: 450856adbdebcdf28c3c671f81732ac3f9944065
+  Components: 20138392dfa999794fb62832e53a0e10db81d7a8
+  DataService: 3f9ebb5e8378e19ab5912dfc29936f2bfbf6bd6e
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
   RxBlocking: 138ad53217434444d6eeeb4fb406a45431d92e31
   RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxCoreData: 3717ff29afb7261f8cff4b893ffb0650367d0fe6
   RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   RxTest: 19d03286bdc0a3aaea5d61d4cde31fdf4bb8a5ba
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftGen: e5b047067aa84082826a0c4f1c4c2ddc95bcf74c
 
-PODFILE CHECKSUM: 1cc7a309be2cac45dbdf3fdb6b104dbd2a1808f9
+PODFILE CHECKSUM: ded1bd9bc8fa8ee5f0720b2e84b59f0e29d233eb
 
 COCOAPODS: 1.5.3

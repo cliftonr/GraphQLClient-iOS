@@ -11,14 +11,18 @@
 		8435562B21CC40A2007A2DA2 /* FontFamily.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435562721CC40A2007A2DA2 /* FontFamily.swift */; };
 		8435562C21CC40A2007A2DA2 /* Asset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435562821CC40A2007A2DA2 /* Asset.swift */; };
 		8435562D21CC40A2007A2DA2 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435562921CC40A2007A2DA2 /* Scene.swift */; };
-		8435562E21CC40A2007A2DA2 /* Segue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435562A21CC40A2007A2DA2 /* Segue.swift */; };
+		8435564021CC490A007A2DA2 /* SetViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435563F21CC490A007A2DA2 /* SetViewModel.swift */; };
+		8435564221CC4929007A2DA2 /* TermTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435564121CC4929007A2DA2 /* TermTableViewCell.swift */; };
+		8435564421CC4964007A2DA2 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435564321CC4964007A2DA2 /* SetViewController.swift */; };
+		8435564621CC4977007A2DA2 /* SetViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8435564521CC4977007A2DA2 /* SetViewController.storyboard */; };
+		8435564821CC4998007A2DA2 /* TermViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435564721CC4998007A2DA2 /* TermViewModel.swift */; };
+		843556A221CD6C9F007A2DA2 /* SetService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843556A121CD6C9F007A2DA2 /* SetService.swift */; };
 		8435E21E21CC243D00A73525 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435E21D21CC243D00A73525 /* AppDelegate.swift */; };
 		8435E22921CC244000A73525 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8435E22821CC244000A73525 /* Assets.xcassets */; };
 		8435E22C21CC244000A73525 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8435E22A21CC244000A73525 /* LaunchScreen.storyboard */; };
 		8435E23721CC244000A73525 /* GraphQLClient_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435E23621CC244000A73525 /* GraphQLClient_iOSTests.swift */; };
 		8435E24821CC269100A73525 /* HomeViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8435E24721CC269100A73525 /* HomeViewController.storyboard */; };
 		8435E24A21CC28EB00A73525 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435E24321CC265200A73525 /* HomeViewController.swift */; };
-		8435E24B21CC28EB00A73525 /* SetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8435E24521CC266000A73525 /* SetViewController.swift */; };
 		EBD8FD4A90AA5094E59CB160 /* Pods_GraphQLClient_iOSTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 95E738D9354A9404EAEC1255 /* Pods_GraphQLClient_iOSTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -39,11 +43,16 @@
 		38F93072845291370D00517E /* Pods-GraphQLClient-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphQLClient-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-GraphQLClient-iOS/Pods-GraphQLClient-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		5274688722F4B5E709183362 /* Pods_GraphQLClient_iOS.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraphQLClient_iOS.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8435561E21CC2B74007A2DA2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
-		8435562121CC33A6007A2DA2 /* generate-constants.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = "generate-constants.sh"; sourceTree = "<group>"; };
 		8435562721CC40A2007A2DA2 /* FontFamily.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontFamily.swift; sourceTree = "<group>"; };
 		8435562821CC40A2007A2DA2 /* Asset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Asset.swift; sourceTree = "<group>"; };
 		8435562921CC40A2007A2DA2 /* Scene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
-		8435562A21CC40A2007A2DA2 /* Segue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Segue.swift; sourceTree = "<group>"; };
+		8435563F21CC490A007A2DA2 /* SetViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetViewModel.swift; sourceTree = "<group>"; };
+		8435564121CC4929007A2DA2 /* TermTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermTableViewCell.swift; sourceTree = "<group>"; };
+		8435564321CC4964007A2DA2 /* SetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
+		8435564521CC4977007A2DA2 /* SetViewController.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = SetViewController.storyboard; sourceTree = "<group>"; };
+		8435564721CC4998007A2DA2 /* TermViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TermViewModel.swift; sourceTree = "<group>"; };
+		843556A121CD6C9F007A2DA2 /* SetService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetService.swift; sourceTree = "<group>"; };
+		843556FA21D013FD007A2DA2 /* GenerateConstants.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = GenerateConstants.sh; sourceTree = "<group>"; };
 		8435E21A21CC243D00A73525 /* GraphQLClient-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GraphQLClient-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8435E21D21CC243D00A73525 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8435E22821CC244000A73525 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,7 +62,6 @@
 		8435E23621CC244000A73525 /* GraphQLClient_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphQLClient_iOSTests.swift; sourceTree = "<group>"; };
 		8435E23821CC244000A73525 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8435E24321CC265200A73525 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		8435E24521CC266000A73525 /* SetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetViewController.swift; sourceTree = "<group>"; };
 		8435E24721CC269100A73525 /* HomeViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HomeViewController.storyboard; sourceTree = "<group>"; };
 		95E738D9354A9404EAEC1255 /* Pods_GraphQLClient_iOSTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GraphQLClient_iOSTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -81,7 +89,7 @@
 		8435562021CC33A6007A2DA2 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
-				8435562321CC3C52007A2DA2 /* Build-Phase */,
+				8435562321CC3C52007A2DA2 /* BuildPhase */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -92,17 +100,16 @@
 				8435562821CC40A2007A2DA2 /* Asset.swift */,
 				8435562721CC40A2007A2DA2 /* FontFamily.swift */,
 				8435562921CC40A2007A2DA2 /* Scene.swift */,
-				8435562A21CC40A2007A2DA2 /* Segue.swift */,
 			);
 			path = Generated;
 			sourceTree = "<group>";
 		};
-		8435562321CC3C52007A2DA2 /* Build-Phase */ = {
+		8435562321CC3C52007A2DA2 /* BuildPhase */ = {
 			isa = PBXGroup;
 			children = (
-				8435562121CC33A6007A2DA2 /* generate-constants.sh */,
+				843556FA21D013FD007A2DA2 /* GenerateConstants.sh */,
 			);
-			path = "Build-Phase";
+			path = BuildPhase;
 			sourceTree = "<group>";
 		};
 		8435562421CC3D63007A2DA2 /* Images */ = {
@@ -123,10 +130,40 @@
 		8435562621CC3D93007A2DA2 /* Views & Strings */ = {
 			isa = PBXGroup;
 			children = (
+				8435564521CC4977007A2DA2 /* SetViewController.storyboard */,
 				8435E22A21CC244000A73525 /* LaunchScreen.storyboard */,
 				8435E24721CC269100A73525 /* HomeViewController.storyboard */,
 			);
 			path = "Views & Strings";
+			sourceTree = "<group>";
+		};
+		8435563C21CC46C5007A2DA2 /* Home Screen */ = {
+			isa = PBXGroup;
+			children = (
+				8435E24321CC265200A73525 /* HomeViewController.swift */,
+			);
+			path = "Home Screen";
+			sourceTree = "<group>";
+		};
+		8435563D21CC46E8007A2DA2 /* Set Screen */ = {
+			isa = PBXGroup;
+			children = (
+				8435564321CC4964007A2DA2 /* SetViewController.swift */,
+				8435563F21CC490A007A2DA2 /* SetViewModel.swift */,
+				843556A121CD6C9F007A2DA2 /* SetService.swift */,
+				8435564121CC4929007A2DA2 /* TermTableViewCell.swift */,
+				8435564721CC4998007A2DA2 /* TermViewModel.swift */,
+			);
+			path = "Set Screen";
+			sourceTree = "<group>";
+		};
+		8435563E21CC472E007A2DA2 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				8435563C21CC46C5007A2DA2 /* Home Screen */,
+				8435563D21CC46E8007A2DA2 /* Set Screen */,
+			);
+			path = Features;
 			sourceTree = "<group>";
 		};
 		8435E21121CC243D00A73525 = {
@@ -156,8 +193,8 @@
 			isa = PBXGroup;
 			children = (
 				8435E21D21CC243D00A73525 /* AppDelegate.swift */,
+				8435563E21CC472E007A2DA2 /* Features */,
 				8435562221CC3BF8007A2DA2 /* Generated */,
-				8435E24921CC285600A73525 /* View Controllers */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -180,15 +217,6 @@
 				8435E22D21CC244000A73525 /* Info.plist */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		8435E24921CC285600A73525 /* View Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				8435E24321CC265200A73525 /* HomeViewController.swift */,
-				8435E24521CC266000A73525 /* SetViewController.swift */,
-			);
-			path = "View Controllers";
 			sourceTree = "<group>";
 		};
 		AF617326746B802EC9212B38 /* Pods */ = {
@@ -303,6 +331,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8435E22C21CC244000A73525 /* LaunchScreen.storyboard in Resources */,
+				8435564621CC4977007A2DA2 /* SetViewController.storyboard in Resources */,
 				8435E22921CC244000A73525 /* Assets.xcassets in Resources */,
 				8435E24821CC269100A73525 /* HomeViewController.storyboard in Resources */,
 			);
@@ -385,15 +414,23 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-GraphQLClient-iOS/Pods-GraphQLClient-iOS-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Apollo/Apollo.framework",
+				"${BUILT_PRODUCTS_DIR}/Components/Components.framework",
+				"${BUILT_PRODUCTS_DIR}/DataService/DataService.framework",
 				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCoreData/RxCoreData.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Apollo.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Components.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DataService.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCoreData.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 			);
@@ -414,7 +451,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "${PROJECT_DIR}/Scripts/Build-Phase/generate-constants.sh\n";
+			shellScript = "${PROJECT_DIR}/Scripts/BuildPhase/GenerateConstants.sh";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -427,9 +464,12 @@
 				8435562B21CC40A2007A2DA2 /* FontFamily.swift in Sources */,
 				8435E24A21CC28EB00A73525 /* HomeViewController.swift in Sources */,
 				8435562D21CC40A2007A2DA2 /* Scene.swift in Sources */,
+				8435564821CC4998007A2DA2 /* TermViewModel.swift in Sources */,
+				8435564421CC4964007A2DA2 /* SetViewController.swift in Sources */,
 				8435562C21CC40A2007A2DA2 /* Asset.swift in Sources */,
-				8435E24B21CC28EB00A73525 /* SetViewController.swift in Sources */,
-				8435562E21CC40A2007A2DA2 /* Segue.swift in Sources */,
+				843556A221CD6C9F007A2DA2 /* SetService.swift in Sources */,
+				8435564221CC4929007A2DA2 /* TermTableViewCell.swift in Sources */,
+				8435564021CC490A007A2DA2 /* SetViewModel.swift in Sources */,
 				8435E21E21CC243D00A73525 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

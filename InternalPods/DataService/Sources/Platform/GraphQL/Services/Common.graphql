@@ -1,0 +1,7 @@
+# Fields with every each model.
+fragment baseModelFields on ServiceModel {
+    id
+    created
+    changed
+    isDeleted
+}

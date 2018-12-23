@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="3bA-Me-wmg">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="HurmeGeometricSans2-Bold.otf">
+            <string>HurmeGeometricSans2-Bold</string>
+        </array>
+        <array key="HurmeGeometricSans2-Regular.otf">
+            <string>HurmeGeometricSans2-Regular</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--SET-->
+        <scene sceneID="5Il-Sn-CHr">
+            <objects>
+                <viewController storyboardIdentifier="SetViewController" title="SET" id="3bA-Me-wmg" customClass="SetViewController" customModule="GraphQLClient_iOS" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k5m-6I-hAb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <userGuides>
+                            <userLayoutGuide location="331" affinity="minY"/>
+                        </userGuides>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="1" translatesAutoresizingMaskIntoConstraints="NO" id="iRR-Pg-M1d">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="603"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <view key="tableHeaderView" contentMode="scaleToFill" id="lkd-xM-xPJ" userLabel="Header View">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="106"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="12" translatesAutoresizingMaskIntoConstraints="NO" id="nMc-jX-gNb">
+                                            <rect key="frame" x="12" y="12" width="351" height="49"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="&lt;&lt;95 cards&gt;&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ymo-Au-gnN">
+                                                    <rect key="frame" x="0.0" y="0.0" width="75.5" height="49"/>
+                                                    <fontDescription key="fontDescription" name="HurmeGeometricSans2-Regular" family="Hurme Geometric Sans 2" pointSize="12"/>
+                                                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" translatesAutoresizingMaskIntoConstraints="NO" id="t1K-Rq-zNH" userLabel="Vertical divider">
+                                                    <rect key="frame" x="171" y="0.0" width="1" height="49"/>
+                                                    <color key="backgroundColor" red="0.86448890160000003" green="0.86448890160000003" blue="0.86448890160000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="1" id="pNA-ya-MVh"/>
+                                                    </constraints>
+                                                </view>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" text="&lt;&lt;Username&gt;&gt;" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbr-Yd-C9Y">
+                                                    <rect key="frame" x="267" y="0.0" width="84" height="49"/>
+                                                    <fontDescription key="fontDescription" name="HurmeGeometricSans2-Regular" family="Hurme Geometric Sans 2" pointSize="12"/>
+                                                    <color key="textColor" red="0.27058823529411763" green="0.81176470588235294" blue="0.80784313725490198" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </stackView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" layoutMarginsFollowReadableWidth="YES" text="&lt;&lt;Set Title&gt;&gt;" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gIy-gq-SpD">
+                                            <rect key="frame" x="12" y="73" width="351" height="21"/>
+                                            <fontDescription key="fontDescription" name="HurmeGeometricSans2-Bold" family="Hurme Geometric Sans 2" pointSize="18"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstAttribute="trailing" secondItem="gIy-gq-SpD" secondAttribute="trailing" constant="12" id="8VG-SZ-JVG"/>
+                                        <constraint firstItem="nMc-jX-gNb" firstAttribute="top" secondItem="lkd-xM-xPJ" secondAttribute="top" constant="12" id="Edz-I7-KEr"/>
+                                        <constraint firstItem="gIy-gq-SpD" firstAttribute="top" secondItem="nMc-jX-gNb" secondAttribute="bottom" constant="12" id="M5v-2Q-zyY"/>
+                                        <constraint firstItem="gIy-gq-SpD" firstAttribute="leading" secondItem="lkd-xM-xPJ" secondAttribute="leading" constant="12" id="Wep-1l-ILz"/>
+                                        <constraint firstItem="nMc-jX-gNb" firstAttribute="leading" secondItem="lkd-xM-xPJ" secondAttribute="leading" constant="12" id="dnZ-NA-7ea"/>
+                                        <constraint firstAttribute="trailing" secondItem="nMc-jX-gNb" secondAttribute="trailing" constant="12" id="kXp-kg-CJU"/>
+                                        <constraint firstAttribute="bottom" secondItem="gIy-gq-SpD" secondAttribute="bottom" constant="12" id="l57-Ui-tUo"/>
+                                    </constraints>
+                                </view>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TermCell" id="BHr-qE-OuL" customClass="TermCell" customModule="Quizlet">
+                                        <rect key="frame" x="0.0" y="161.5" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BHr-qE-OuL" id="SXd-j9-Y2Y">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sxy-wi-wqb">
+                                                    <rect key="frame" x="14" y="12" width="572" height="32"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="1000" text="&lt;&lt;Term&gt;&gt;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxB-G9-GOw">
+                                                            <rect key="frame" x="12" y="12" width="126" height="8"/>
+                                                            <fontDescription key="fontDescription" name="HurmeGeometricSans2-Regular" family="Hurme Geometric Sans 2" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <view contentMode="scaleToFill" horizontalHuggingPriority="1000" verticalHuggingPriority="500" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="500" translatesAutoresizingMaskIntoConstraints="NO" id="1qO-xn-zik" userLabel="Vertical divider">
+                                                            <rect key="frame" x="150" y="12" width="1" height="8"/>
+                                                            <color key="backgroundColor" red="0.86448890160000003" green="0.86448890160000003" blue="0.86448890160000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="1" id="X7c-KO-Kgf"/>
+                                                            </constraints>
+                                                        </view>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="1000" text="&lt;&lt;Definition&gt;&gt;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ae0-TJ-2d0">
+                                                            <rect key="frame" x="163" y="12" width="397" height="8"/>
+                                                            <fontDescription key="fontDescription" name="HurmeGeometricSans2-Regular" family="Hurme Geometric Sans 2" pointSize="14"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="bottom" secondItem="ae0-TJ-2d0" secondAttribute="bottom" constant="12" id="2hE-Ph-qUK"/>
+                                                        <constraint firstItem="fxB-G9-GOw" firstAttribute="leading" secondItem="Sxy-wi-wqb" secondAttribute="leading" constant="12" id="5mn-4M-nWa"/>
+                                                        <constraint firstItem="1qO-xn-zik" firstAttribute="leading" secondItem="fxB-G9-GOw" secondAttribute="trailing" priority="750" constant="12" id="Eht-4T-RqH"/>
+                                                        <constraint firstItem="ae0-TJ-2d0" firstAttribute="leading" secondItem="1qO-xn-zik" secondAttribute="trailing" constant="12" id="Gaa-UB-5l6"/>
+                                                        <constraint firstItem="fxB-G9-GOw" firstAttribute="top" secondItem="Sxy-wi-wqb" secondAttribute="top" constant="12" id="GoY-Rp-tOt"/>
+                                                        <constraint firstItem="1qO-xn-zik" firstAttribute="top" secondItem="Sxy-wi-wqb" secondAttribute="top" constant="12" id="HrM-FE-i8L"/>
+                                                        <constraint firstAttribute="bottom" secondItem="1qO-xn-zik" secondAttribute="bottom" constant="12" id="SsO-62-Hir"/>
+                                                        <constraint firstAttribute="bottom" secondItem="fxB-G9-GOw" secondAttribute="bottom" constant="12" id="TxO-pD-M2Z"/>
+                                                        <constraint firstItem="1qO-xn-zik" firstAttribute="leading" secondItem="Sxy-wi-wqb" secondAttribute="leading" constant="150" id="abR-x5-4Kh"/>
+                                                        <constraint firstAttribute="trailing" secondItem="ae0-TJ-2d0" secondAttribute="trailing" constant="12" id="xPV-3X-qaW"/>
+                                                        <constraint firstItem="ae0-TJ-2d0" firstAttribute="top" secondItem="Sxy-wi-wqb" secondAttribute="top" constant="12" id="zhg-JI-2dc"/>
+                                                    </constraints>
+                                                </view>
+                                            </subviews>
+                                            <color key="backgroundColor" red="0.94117647058823528" green="0.94117647058823528" blue="0.94117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="Sxy-wi-wqb" secondAttribute="bottom" id="IZZ-Yk-WXP"/>
+                                                <constraint firstAttribute="trailing" secondItem="Sxy-wi-wqb" secondAttribute="trailing" constant="14" id="Pxv-l1-gFN"/>
+                                                <constraint firstItem="Sxy-wi-wqb" firstAttribute="leading" secondItem="SXd-j9-Y2Y" secondAttribute="leading" constant="14" id="Umj-je-sDh"/>
+                                                <constraint firstItem="Sxy-wi-wqb" firstAttribute="top" secondItem="SXd-j9-Y2Y" secondAttribute="top" constant="12" id="sqL-P5-u9H"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="definitionLabel" destination="ae0-TJ-2d0" id="Ut3-zr-v7R"/>
+                                            <outlet property="termLabel" destination="fxB-G9-GOw" id="NOx-Jc-8MR"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="iRR-Pg-M1d" firstAttribute="top" secondItem="V9U-w2-NbA" secondAttribute="top" id="890-pJ-1a3"/>
+                            <constraint firstItem="V9U-w2-NbA" firstAttribute="bottom" secondItem="iRR-Pg-M1d" secondAttribute="bottom" id="Zm0-Qa-Yeq"/>
+                            <constraint firstItem="V9U-w2-NbA" firstAttribute="trailing" secondItem="iRR-Pg-M1d" secondAttribute="trailing" id="mNq-rE-nri"/>
+                            <constraint firstItem="iRR-Pg-M1d" firstAttribute="leading" secondItem="V9U-w2-NbA" secondAttribute="leading" id="tmY-8l-4Sr"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="V9U-w2-NbA"/>
+                    </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <connections>
+                        <outlet property="cardCountLabel" destination="ymo-Au-gnN" id="nfb-dQ-1ST"/>
+                        <outlet property="tableView" destination="iRR-Pg-M1d" id="7Lf-eC-Eck"/>
+                        <outlet property="titleLabel" destination="gIy-gq-SpD" id="tky-gN-iNL"/>
+                        <outlet property="usernameLabel" destination="sbr-Yd-C9Y" id="fTT-X2-ZkA"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3bs-eG-OUW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4022" y="-1006"/>
+        </scene>
+    </scenes>
+</document>
