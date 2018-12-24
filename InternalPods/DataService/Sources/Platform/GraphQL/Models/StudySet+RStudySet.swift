@@ -22,10 +22,6 @@ extension StudySetsByCreatorQuery.Data.StudySet.CreatorUser: GQLUser {
 
 extension StudySetsByCreatorQuery.Data.StudySet: GQLStudySet {
 
-    var creator: GQLUser {
-        return creatorUser
-    }
-
     var id: String {
         return fragments.baseModelFields.id
     }
@@ -40,6 +36,14 @@ extension StudySetsByCreatorQuery.Data.StudySet: GQLStudySet {
 
     var isDeleted: Bool {
         return fragments.baseModelFields.isDeleted
+    }
+
+    var creator: GQLUser {
+        return creatorUser
+    }
+
+    var terms: [GQLStudyTerm]? {
+        return nil
     }
 }
 
@@ -64,8 +68,8 @@ extension StudySetDetailsQuery.Data.StudySet.CreatorUser: GQLUser {
 
 extension StudySetDetailsQuery.Data.StudySet: GQLStudySet {
 
-    var creator: GQLUser {
-        return creatorUser
+    var terms: [GQLStudyTerm]? {
+        return associatedTerms
     }
 
     var id: String {
@@ -83,13 +87,40 @@ extension StudySetDetailsQuery.Data.StudySet: GQLStudySet {
     var isDeleted: Bool {
         return fragments.baseModelFields.isDeleted
     }
+
+    var creator: GQLUser {
+        return creatorUser
+    }
 }
 
-extension StudySetDetailsQuery.Data.StudySet.Term: GQLStudyTerm {
+extension StudySetDetailsQuery.Data.StudySet.AssociatedTerm: GQLStudyTerm {
+
+    var id: String {
+        return fragments.baseModelFields.id
+    }
+
+    var creationDate: Date {
+        return Date(timeIntervalSince1970: TimeInterval(fragments.baseModelFields.created)!)
+    }
+
+    var modificationDate: Date {
+        return Date(timeIntervalSince1970: TimeInterval(fragments.baseModelFields.changed)!)
+    }
+
+    var isDeleted: Bool {
+        return fragments.baseModelFields.isDeleted
+    }
 
     var parentSet: GQLStudySet {
         return containingSet
     }
+}
+
+extension StudySetDetailsQuery.Data.StudySet.AssociatedTerm.ContainingSet: GQLStudySet {
+
+    var terms: [GQLStudyTerm]? {
+        return nil
+    }
 
     var id: String {
         return fragments.baseModelFields.id
@@ -106,32 +137,13 @@ extension StudySetDetailsQuery.Data.StudySet.Term: GQLStudyTerm {
     var isDeleted: Bool {
         return fragments.baseModelFields.isDeleted
     }
-}
-
-extension StudySetDetailsQuery.Data.StudySet.Term.ContainingSet: GQLStudySet {
 
     var creator: GQLUser {
         return creatorUser
     }
-
-    var id: String {
-        return fragments.baseModelFields.id
-    }
-
-    var creationDate: Date {
-        return Date(timeIntervalSince1970: TimeInterval(fragments.baseModelFields.created)!)
-    }
-
-    var modificationDate: Date {
-        return Date(timeIntervalSince1970: TimeInterval(fragments.baseModelFields.changed)!)
-    }
-
-    var isDeleted: Bool {
-        return fragments.baseModelFields.isDeleted
-    }
 }
 
-extension StudySetDetailsQuery.Data.StudySet.Term.ContainingSet.CreatorUser: GQLUser {
+extension StudySetDetailsQuery.Data.StudySet.AssociatedTerm.ContainingSet.CreatorUser: GQLUser {
 
     var id: String {
         return fragments.baseModelFields.id

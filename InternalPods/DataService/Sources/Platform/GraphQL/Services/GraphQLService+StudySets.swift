@@ -6,12 +6,14 @@ final class GraphQLStudySetsService: GraphQLService, StudySetsService {
         return Single.create { [weak self] observer in
             let fetch = self?.apolloClient.fetch(query: StudySetsByCreatorQuery(creatorId: creatorId))
             { result, error in
-                guard let strongSelf = self, let data = result?.data else {
+                guard let strongSelf = self,
+                    let data = result?.data else
+                {
                     return
                 }
 
-                let models: [RStudySetImpl] = strongSelf.modelCache.updateModels(data.studySets)
-                observer(.success(models))
+                let models: [RStudySetImpl]? = strongSelf.modelCache.updateModels(data.studySets)
+                observer(.success(models ?? []))
             }
 
             return Disposables.create {

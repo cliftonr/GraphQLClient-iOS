@@ -6,15 +6,10 @@ import RxCocoa
 final class SetViewModel {
 
     private let setId: String
-    private let termsService: StudyTermsService
     private let setsService: StudySetsService
 
-    init(setId: String,
-         termsService: StudyTermsService,
-         setsService: StudySetsService)
-    {
+    init(setId: String, setsService: StudySetsService) {
         self.setId = setId
-        self.termsService = termsService
         self.setsService = setsService
     }
 }
@@ -50,7 +45,10 @@ extension SetViewModel: Components.ViewModel {
             .flatMap { $0.usernameObservable }
             .debug("username", trimOutput: false)
 
-        let terms = termsService.studyTerms(byParentSetId: setId)
+        let terms = set
+            .asObservable()
+            .flatMap { $0.terms }
+            .skipNil()
 
         let termCount = terms
             .map { return "\($0.count) cards" }

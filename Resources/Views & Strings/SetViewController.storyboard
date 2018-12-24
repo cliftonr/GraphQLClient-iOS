@@ -78,7 +78,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TermCell" id="BHr-qE-OuL" customClass="TermCell" customModule="Quizlet">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TermTableViewCell" id="BHr-qE-OuL" customClass="TermTableViewCell" customModule="GraphQLClient_iOS" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="161.5" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="BHr-qE-OuL" id="SXd-j9-Y2Y">
@@ -86,7 +86,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Sxy-wi-wqb">
-                                                    <rect key="frame" x="14" y="12" width="572" height="32"/>
+                                                    <rect key="frame" x="14" y="12" width="347" height="32"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="1000" text="&lt;&lt;Term&gt;&gt;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fxB-G9-GOw">
                                                             <rect key="frame" x="12" y="12" width="126" height="8"/>
@@ -102,7 +102,7 @@
                                                             </constraints>
                                                         </view>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="500" verticalCompressionResistancePriority="1000" text="&lt;&lt;Definition&gt;&gt;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ae0-TJ-2d0">
-                                                            <rect key="frame" x="163" y="12" width="397" height="8"/>
+                                                            <rect key="frame" x="163" y="12" width="172" height="8"/>
                                                             <fontDescription key="fontDescription" name="HurmeGeometricSans2-Regular" family="Hurme Geometric Sans 2" pointSize="14"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>

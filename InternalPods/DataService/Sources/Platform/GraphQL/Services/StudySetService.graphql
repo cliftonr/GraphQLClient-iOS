@@ -31,7 +31,7 @@ query StudySetDetails($setId: ID!) {
             email
         }
 
-        terms {
+        associatedTerms: terms {
             ...baseModelFields
 
             word

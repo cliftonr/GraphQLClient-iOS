@@ -243,19 +243,15 @@
             "description": "The terms contained in the set.",
             "args": [],
             "type": {
-              "kind": "NON_NULL",
+              "kind": "LIST",
               "name": null,
               "ofType": {
-                "kind": "LIST",
+                "kind": "NON_NULL",
                 "name": null,
                 "ofType": {
-                  "kind": "NON_NULL",
-                  "name": null,
-                  "ofType": {
-                    "kind": "OBJECT",
-                    "name": "StudyTerm",
-                    "ofType": null
-                  }
+                  "kind": "OBJECT",
+                  "name": "StudyTerm",
+                  "ofType": null
                 }
               }
             },
@@ -626,16 +622,12 @@
             "description": "Sets created by the user.",
             "args": [],
             "type": {
-              "kind": "NON_NULL",
+              "kind": "LIST",
               "name": null,
               "ofType": {
-                "kind": "LIST",
-                "name": null,
-                "ofType": {
-                  "kind": "OBJECT",
-                  "name": "StudySet",
-                  "ofType": null
-                }
+                "kind": "OBJECT",
+                "name": "StudySet",
+                "ofType": null
               }
             },
             "isDeprecated": false,

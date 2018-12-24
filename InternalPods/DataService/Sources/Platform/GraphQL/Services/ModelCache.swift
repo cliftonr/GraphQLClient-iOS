@@ -38,7 +38,11 @@ final class ModelCache {
         return model
     }
 
-    func updateModels<ModelType: RServiceModelImpl>(_ models: [GQLServiceModel]) -> [ModelType] {
+    func updateModels<ModelType: RServiceModelImpl>(_ models: [GQLServiceModel]?) -> [ModelType]? {
+        guard let models = models else {
+            return nil
+        }
+
         return models.map(self.updateModel)
     }
 }

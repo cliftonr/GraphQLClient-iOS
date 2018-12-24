@@ -208,7 +208,7 @@ public final class StudySetsByCreatorQuery: GraphQLQuery {
 
 public final class StudySetDetailsQuery: GraphQLQuery {
   public let operationDefinition =
-    "query StudySetDetails($setId: ID!) {\n  studySet(setId: $setId) {\n    __typename\n    ...baseModelFields\n    title\n    description\n    creatorUser: creator {\n      __typename\n      ...baseModelFields\n      username\n      email\n    }\n    terms {\n      __typename\n      ...baseModelFields\n      word\n      definition\n      containingSet: parentSet {\n        __typename\n        ...baseModelFields\n        title\n        description\n        creatorUser: creator {\n          __typename\n          ...baseModelFields\n          username\n          email\n        }\n      }\n    }\n  }\n}"
+    "query StudySetDetails($setId: ID!) {\n  studySet(setId: $setId) {\n    __typename\n    ...baseModelFields\n    title\n    description\n    creatorUser: creator {\n      __typename\n      ...baseModelFields\n      username\n      email\n    }\n    associatedTerms: terms {\n      __typename\n      ...baseModelFields\n      word\n      definition\n      containingSet: parentSet {\n        __typename\n        ...baseModelFields\n        title\n        description\n        creatorUser: creator {\n          __typename\n          ...baseModelFields\n          username\n          email\n        }\n      }\n    }\n  }\n}"
 
   public var queryDocument: String { return operationDefinition.appending(BaseModelFields.fragmentDefinition) }
 
@@ -258,7 +258,7 @@ public final class StudySetDetailsQuery: GraphQLQuery {
         GraphQLField("title", type: .nonNull(.scalar(String.self))),
         GraphQLField("description", type: .scalar(String.self)),
         GraphQLField("creator", alias: "creatorUser", type: .nonNull(.object(CreatorUser.selections))),
-        GraphQLField("terms", type: .nonNull(.list(.nonNull(.object(Term.selections))))),
+        GraphQLField("terms", alias: "associatedTerms", type: .list(.nonNull(.object(AssociatedTerm.selections)))),
       ]
 
       public private(set) var resultMap: ResultMap
@@ -307,12 +307,12 @@ public final class StudySetDetailsQuery: GraphQLQuery {
       }
 
       /// The terms contained in the set.
-      public var terms: [Term] {
+      public var associatedTerms: [AssociatedTerm]? {
         get {
-          return (resultMap["terms"] as! [ResultMap]).map { (value: ResultMap) -> Term in Term(unsafeResultMap: value) }
+          return (resultMap["associatedTerms"] as? [ResultMap]).flatMap { (value: [ResultMap]) -> [AssociatedTerm] in value.map { (value: ResultMap) -> AssociatedTerm in AssociatedTerm(unsafeResultMap: value) } }
         }
         set {
-          resultMap.updateValue(newValue.map { (value: Term) -> ResultMap in value.resultMap }, forKey: "terms")
+          resultMap.updateValue(newValue.flatMap { (value: [AssociatedTerm]) -> [ResultMap] in value.map { (value: AssociatedTerm) -> ResultMap in value.resultMap } }, forKey: "associatedTerms")
         }
       }
 
@@ -418,7 +418,7 @@ public final class StudySetDetailsQuery: GraphQLQuery {
         }
       }
 
-      public struct Term: GraphQLSelectionSet {
+      public struct AssociatedTerm: GraphQLSelectionSet {
         public static let possibleTypes = ["StudyTerm"]
 
         public static let selections: [GraphQLSelection] = [
