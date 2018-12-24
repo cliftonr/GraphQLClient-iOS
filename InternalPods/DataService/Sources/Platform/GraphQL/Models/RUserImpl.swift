@@ -13,12 +13,9 @@ internal final class RUserImpl: RServiceModelImpl {
         super.init(model: model, modelCache: modelCache)
     }
 
-    /// Update the model. Subclasses must call super.
-    ///
-    /// - Parameter model: The data with which to update the reactive properties.
-    override func update(model: GQLServiceModel) {
+    override func update(model: GQLServiceModel, modelCache: ModelCache) {
         let model = model as! GQLUser
-        super.update(model: model)
+        super.update(model: model, modelCache: modelCache)
         usernameRelay.accept(model.username)
         emailRelay.accept(model.email)
     }

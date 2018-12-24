@@ -6,28 +6,21 @@ internal final class RStudySetImpl: RServiceModelImpl {
     private let titleRelay: BehaviorRelay<String>
     private let descriptionRelay: BehaviorRelay<String?>
     private let creatorRelay: BehaviorRelay<RUserImpl>
-    private let creator: RUserImpl
 
     required init(model: GQLServiceModel, modelCache: ModelCache) {
         let model = model as! GQLStudySet
         titleRelay = BehaviorRelay(value: model.title)
         descriptionRelay = BehaviorRelay(value: model.description)
-        creator = modelCache.updateModel(model.creator)
-        creatorRelay = BehaviorRelay(value: creator)
+        creatorRelay = BehaviorRelay(value: modelCache.updateModel(model.creator))
         super.init(model: model, modelCache: modelCache)
     }
 
-    override func update(model: GQLServiceModel) {
+    override func update(model: GQLServiceModel, modelCache: ModelCache) {
         let model = model as! GQLStudySet
-        super.update(model: model)
+        super.update(model: model, modelCache: modelCache)
         titleRelay.accept(model.title)
         descriptionRelay.accept(model.description)
-        updateCreator(model.creator)
-    }
-
-    private func updateCreator(_ creator: GQLUser) {
-        self.creator.update(model: creator)
-        creatorRelay.accept(self.creator)
+        creatorRelay.accept(modelCache.updateModel(model.creator))
     }
 }
 

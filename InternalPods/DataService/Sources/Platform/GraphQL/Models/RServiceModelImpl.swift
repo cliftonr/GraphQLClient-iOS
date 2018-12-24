@@ -3,10 +3,10 @@ import RxSwift
 
 internal class RServiceModelImpl: CachableType {
 
-    fileprivate let idRelay: BehaviorRelay<String>
-    fileprivate let creationDateRelay: BehaviorRelay<Date>
-    fileprivate let modificationDateRelay: BehaviorRelay<Date>
-    fileprivate let isDeletedRelay: BehaviorRelay<Bool>
+    private let idRelay: BehaviorRelay<String>
+    private let creationDateRelay: BehaviorRelay<Date>
+    private let modificationDateRelay: BehaviorRelay<Date>
+    private let isDeletedRelay: BehaviorRelay<Bool>
 
     required init(model: GQLServiceModel, modelCache: ModelCache) {
         idRelay = BehaviorRelay(value: model.id)
@@ -17,8 +17,10 @@ internal class RServiceModelImpl: CachableType {
 
     /// Update the model. Subclasses must call super.
     ///
-    /// - Parameter model: The data with which to update the reactive properties.
-    open func update(model: GQLServiceModel) {
+    /// - Parameters:
+    ///   - model: The data with which to update the reactive properties.
+    ///   - modelCache: The in-memory cache where models are stored.
+    open func update(model: GQLServiceModel, modelCache: ModelCache) {
         idRelay.accept(model.id)
         creationDateRelay.accept(model.creationDate)
         modificationDateRelay.accept(model.modificationDate)

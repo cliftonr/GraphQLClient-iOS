@@ -26,7 +26,7 @@ final class ModelCache {
         var modelsById = modelsByClass[key] ?? [IdType: ModelType]()
         let model: ModelType = {
             if let existingModel = modelsById[model.id] {
-                existingModel.update(model: model)
+                existingModel.update(model: model, modelCache: self)
                 return existingModel as! ModelType
             } else {
                 let newModel = ModelType(model: model, modelCache: self)
