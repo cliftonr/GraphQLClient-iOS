@@ -1,13 +1,21 @@
-query UserStudySets($creatorId: ID!) {
+# Query all sets belonging to user with id `creatorId`.
+query StudySetsByCreator($creatorId: ID!) {
 
     studySets(creatorId: $creatorId) {
         ...baseModelFields
 
         title
         description
+        creatorUser: creator {
+            ...baseModelFields
+
+            username
+            email
+        }
     }
 }
 
+# Query all details about a set, including all its terms.
 query StudySetDetails($setId: ID!) {
 
     studySet(setId: $setId) {
@@ -15,9 +23,33 @@ query StudySetDetails($setId: ID!) {
 
         title
         description
+
+        creatorUser: creator {
+            ...baseModelFields
+
+            username
+            email
+        }
+
         terms {
             ...baseModelFields
 
+            word
+            definition
+
+            containingSet: parentSet {
+                ...baseModelFields
+
+                title
+                description
+
+                creatorUser: creator {
+                    ...baseModelFields
+
+                    username
+                    email
+                }
+            }
         }
     }
 }

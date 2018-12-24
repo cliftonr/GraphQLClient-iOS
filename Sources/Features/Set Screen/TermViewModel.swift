@@ -26,11 +26,9 @@ extension TermViewModel: ViewModel {
     {
         let wordText = term
             .wordObservable
-            .skipNil()
 
         let definitionText = term
             .definitionObservable
-            .skipNil()
 
         let output = Output(
             wordText: wordText,

@@ -1,13 +1,26 @@
 import UIKit
+import DataService
+import RxSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var termsService: StudyTermsService!
+    var setsService: StudySetsService!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        let setViewController = StoryboardScene.SetViewController.initialScene.instantiate()
+        let apiClient = APIClient()
+        let serviceFactory = GraphQLServiceFactory(apiClient: apiClient)
+        termsService = serviceFactory.createStudyTermsService()
+        setsService = serviceFactory.createStudySetsService()
+
+        setViewController.viewModel = SetViewModel(setId: "1",
+                                                   termsService: termsService,
+                                                   setsService: setsService)
+        window?.rootViewController = setViewController
+        window?.makeKeyAndVisible()
         return true
     }
 

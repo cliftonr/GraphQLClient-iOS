@@ -35,6 +35,7 @@ final class SetViewController: UIViewController {
 
             // User name.
             output.userName
+                .debug("output.username", trimOutput: false)
                 .bind(to: strongSelf.usernameLabel.rx.text)
                 .disposed(by: strongSelf.disposeBag)
 

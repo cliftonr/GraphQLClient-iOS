@@ -2,9 +2,9 @@
 
 import Apollo
 
-public final class UserStudySetsQuery: GraphQLQuery {
+public final class StudySetsByCreatorQuery: GraphQLQuery {
   public let operationDefinition =
-    "query UserStudySets($creatorId: ID!) {\n  studySets(creatorId: $creatorId) {\n    __typename\n    ...baseModelFields\n    title\n    description\n  }\n}"
+    "query StudySetsByCreator($creatorId: ID!) {\n  studySets(creatorId: $creatorId) {\n    __typename\n    ...baseModelFields\n    title\n    description\n    creatorUser: creator {\n      __typename\n      ...baseModelFields\n      username\n      email\n    }\n  }\n}"
 
   public var queryDocument: String { return operationDefinition.appending(BaseModelFields.fragmentDefinition) }
 
@@ -22,7 +22,7 @@ public final class UserStudySetsQuery: GraphQLQuery {
     public static let possibleTypes = ["Query"]
 
     public static let selections: [GraphQLSelection] = [
-      GraphQLField("studySets", arguments: ["creatorId": GraphQLVariable("creatorId")], type: .nonNull(.list(.object(StudySet.selections)))),
+      GraphQLField("studySets", arguments: ["creatorId": GraphQLVariable("creatorId")], type: .nonNull(.list(.nonNull(.object(StudySet.selections))))),
     ]
 
     public private(set) var resultMap: ResultMap
@@ -31,17 +31,17 @@ public final class UserStudySetsQuery: GraphQLQuery {
       self.resultMap = unsafeResultMap
     }
 
-    public init(studySets: [StudySet?]) {
-      self.init(unsafeResultMap: ["__typename": "Query", "studySets": studySets.map { (value: StudySet?) -> ResultMap? in value.flatMap { (value: StudySet) -> ResultMap in value.resultMap } }])
+    public init(studySets: [StudySet]) {
+      self.init(unsafeResultMap: ["__typename": "Query", "studySets": studySets.map { (value: StudySet) -> ResultMap in value.resultMap }])
     }
 
     /// Get all sets belonging to user with creatorId.
-    public var studySets: [StudySet?] {
+    public var studySets: [StudySet] {
       get {
-        return (resultMap["studySets"] as! [ResultMap?]).map { (value: ResultMap?) -> StudySet? in value.flatMap { (value: ResultMap) -> StudySet in StudySet(unsafeResultMap: value) } }
+        return (resultMap["studySets"] as! [ResultMap]).map { (value: ResultMap) -> StudySet in StudySet(unsafeResultMap: value) }
       }
       set {
-        resultMap.updateValue(newValue.map { (value: StudySet?) -> ResultMap? in value.flatMap { (value: StudySet) -> ResultMap in value.resultMap } }, forKey: "studySets")
+        resultMap.updateValue(newValue.map { (value: StudySet) -> ResultMap in value.resultMap }, forKey: "studySets")
       }
     }
 
@@ -53,16 +53,13 @@ public final class UserStudySetsQuery: GraphQLQuery {
         GraphQLFragmentSpread(BaseModelFields.self),
         GraphQLField("title", type: .nonNull(.scalar(String.self))),
         GraphQLField("description", type: .scalar(String.self)),
+        GraphQLField("creator", alias: "creatorUser", type: .nonNull(.object(CreatorUser.selections))),
       ]
 
       public private(set) var resultMap: ResultMap
 
       public init(unsafeResultMap: ResultMap) {
         self.resultMap = unsafeResultMap
-      }
-
-      public init(id: GraphQLID, created: String, changed: String, isDeleted: Bool, title: String, description: String? = nil) {
-        self.init(unsafeResultMap: ["__typename": "StudySet", "id": id, "created": created, "changed": changed, "isDeleted": isDeleted, "title": title, "description": description])
       }
 
       public var __typename: String {
@@ -94,6 +91,16 @@ public final class UserStudySetsQuery: GraphQLQuery {
         }
       }
 
+      /// The user who created the set.
+      public var creatorUser: CreatorUser {
+        get {
+          return CreatorUser(unsafeResultMap: resultMap["creatorUser"]! as! ResultMap)
+        }
+        set {
+          resultMap.updateValue(newValue.resultMap, forKey: "creatorUser")
+        }
+      }
+
       public var fragments: Fragments {
         get {
           return Fragments(unsafeResultMap: resultMap)
@@ -119,13 +126,89 @@ public final class UserStudySetsQuery: GraphQLQuery {
           }
         }
       }
+
+      public struct CreatorUser: GraphQLSelectionSet {
+        public static let possibleTypes = ["User"]
+
+        public static let selections: [GraphQLSelection] = [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLFragmentSpread(BaseModelFields.self),
+          GraphQLField("username", type: .nonNull(.scalar(String.self))),
+          GraphQLField("email", type: .nonNull(.scalar(String.self))),
+        ]
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public init(id: GraphQLID, created: String, changed: String, isDeleted: Bool, username: String, email: String) {
+          self.init(unsafeResultMap: ["__typename": "User", "id": id, "created": created, "changed": changed, "isDeleted": isDeleted, "username": username, "email": email])
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// User's unique handle.
+        public var username: String {
+          get {
+            return resultMap["username"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "username")
+          }
+        }
+
+        /// User's unique email address.
+        public var email: String {
+          get {
+            return resultMap["email"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "email")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var baseModelFields: BaseModelFields {
+            get {
+              return BaseModelFields(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
+        }
+      }
     }
   }
 }
 
 public final class StudySetDetailsQuery: GraphQLQuery {
   public let operationDefinition =
-    "query StudySetDetails($setId: ID!) {\n  studySet(setId: $setId) {\n    __typename\n    ...baseModelFields\n    title\n    description\n    terms {\n      __typename\n      ...baseModelFields\n    }\n  }\n}"
+    "query StudySetDetails($setId: ID!) {\n  studySet(setId: $setId) {\n    __typename\n    ...baseModelFields\n    title\n    description\n    creatorUser: creator {\n      __typename\n      ...baseModelFields\n      username\n      email\n    }\n    terms {\n      __typename\n      ...baseModelFields\n      word\n      definition\n      containingSet: parentSet {\n        __typename\n        ...baseModelFields\n        title\n        description\n        creatorUser: creator {\n          __typename\n          ...baseModelFields\n          username\n          email\n        }\n      }\n    }\n  }\n}"
 
   public var queryDocument: String { return operationDefinition.appending(BaseModelFields.fragmentDefinition) }
 
@@ -174,7 +257,8 @@ public final class StudySetDetailsQuery: GraphQLQuery {
         GraphQLFragmentSpread(BaseModelFields.self),
         GraphQLField("title", type: .nonNull(.scalar(String.self))),
         GraphQLField("description", type: .scalar(String.self)),
-        GraphQLField("terms", type: .nonNull(.list(.object(Term.selections)))),
+        GraphQLField("creator", alias: "creatorUser", type: .nonNull(.object(CreatorUser.selections))),
+        GraphQLField("terms", type: .nonNull(.list(.nonNull(.object(Term.selections))))),
       ]
 
       public private(set) var resultMap: ResultMap
@@ -212,13 +296,23 @@ public final class StudySetDetailsQuery: GraphQLQuery {
         }
       }
 
-      /// The terms contained in the set.
-      public var terms: [Term?] {
+      /// The user who created the set.
+      public var creatorUser: CreatorUser {
         get {
-          return (resultMap["terms"] as! [ResultMap?]).map { (value: ResultMap?) -> Term? in value.flatMap { (value: ResultMap) -> Term in Term(unsafeResultMap: value) } }
+          return CreatorUser(unsafeResultMap: resultMap["creatorUser"]! as! ResultMap)
         }
         set {
-          resultMap.updateValue(newValue.map { (value: Term?) -> ResultMap? in value.flatMap { (value: Term) -> ResultMap in value.resultMap } }, forKey: "terms")
+          resultMap.updateValue(newValue.resultMap, forKey: "creatorUser")
+        }
+      }
+
+      /// The terms contained in the set.
+      public var terms: [Term] {
+        get {
+          return (resultMap["terms"] as! [ResultMap]).map { (value: ResultMap) -> Term in Term(unsafeResultMap: value) }
+        }
+        set {
+          resultMap.updateValue(newValue.map { (value: Term) -> ResultMap in value.resultMap }, forKey: "terms")
         }
       }
 
@@ -248,12 +342,14 @@ public final class StudySetDetailsQuery: GraphQLQuery {
         }
       }
 
-      public struct Term: GraphQLSelectionSet {
-        public static let possibleTypes = ["StudyTerm"]
+      public struct CreatorUser: GraphQLSelectionSet {
+        public static let possibleTypes = ["User"]
 
         public static let selections: [GraphQLSelection] = [
           GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
           GraphQLFragmentSpread(BaseModelFields.self),
+          GraphQLField("username", type: .nonNull(.scalar(String.self))),
+          GraphQLField("email", type: .nonNull(.scalar(String.self))),
         ]
 
         public private(set) var resultMap: ResultMap
@@ -262,8 +358,8 @@ public final class StudySetDetailsQuery: GraphQLQuery {
           self.resultMap = unsafeResultMap
         }
 
-        public init(id: GraphQLID, created: String, changed: String, isDeleted: Bool) {
-          self.init(unsafeResultMap: ["__typename": "StudyTerm", "id": id, "created": created, "changed": changed, "isDeleted": isDeleted])
+        public init(id: GraphQLID, created: String, changed: String, isDeleted: Bool, username: String, email: String) {
+          self.init(unsafeResultMap: ["__typename": "User", "id": id, "created": created, "changed": changed, "isDeleted": isDeleted, "username": username, "email": email])
         }
 
         public var __typename: String {
@@ -272,6 +368,26 @@ public final class StudySetDetailsQuery: GraphQLQuery {
           }
           set {
             resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// User's unique handle.
+        public var username: String {
+          get {
+            return resultMap["username"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "username")
+          }
+        }
+
+        /// User's unique email address.
+        public var email: String {
+          get {
+            return resultMap["email"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "email")
           }
         }
 
@@ -297,6 +413,248 @@ public final class StudySetDetailsQuery: GraphQLQuery {
             }
             set {
               resultMap += newValue.resultMap
+            }
+          }
+        }
+      }
+
+      public struct Term: GraphQLSelectionSet {
+        public static let possibleTypes = ["StudyTerm"]
+
+        public static let selections: [GraphQLSelection] = [
+          GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+          GraphQLFragmentSpread(BaseModelFields.self),
+          GraphQLField("word", type: .nonNull(.scalar(String.self))),
+          GraphQLField("definition", type: .nonNull(.scalar(String.self))),
+          GraphQLField("parentSet", alias: "containingSet", type: .nonNull(.object(ContainingSet.selections))),
+        ]
+
+        public private(set) var resultMap: ResultMap
+
+        public init(unsafeResultMap: ResultMap) {
+          self.resultMap = unsafeResultMap
+        }
+
+        public var __typename: String {
+          get {
+            return resultMap["__typename"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "__typename")
+          }
+        }
+
+        /// The "word" side of a term.
+        public var word: String {
+          get {
+            return resultMap["word"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "word")
+          }
+        }
+
+        /// The "definition" side of a term.
+        public var definition: String {
+          get {
+            return resultMap["definition"]! as! String
+          }
+          set {
+            resultMap.updateValue(newValue, forKey: "definition")
+          }
+        }
+
+        /// The set to which the term belongs.
+        public var containingSet: ContainingSet {
+          get {
+            return ContainingSet(unsafeResultMap: resultMap["containingSet"]! as! ResultMap)
+          }
+          set {
+            resultMap.updateValue(newValue.resultMap, forKey: "containingSet")
+          }
+        }
+
+        public var fragments: Fragments {
+          get {
+            return Fragments(unsafeResultMap: resultMap)
+          }
+          set {
+            resultMap += newValue.resultMap
+          }
+        }
+
+        public struct Fragments {
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var baseModelFields: BaseModelFields {
+            get {
+              return BaseModelFields(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
+        }
+
+        public struct ContainingSet: GraphQLSelectionSet {
+          public static let possibleTypes = ["StudySet"]
+
+          public static let selections: [GraphQLSelection] = [
+            GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+            GraphQLFragmentSpread(BaseModelFields.self),
+            GraphQLField("title", type: .nonNull(.scalar(String.self))),
+            GraphQLField("description", type: .scalar(String.self)),
+            GraphQLField("creator", alias: "creatorUser", type: .nonNull(.object(CreatorUser.selections))),
+          ]
+
+          public private(set) var resultMap: ResultMap
+
+          public init(unsafeResultMap: ResultMap) {
+            self.resultMap = unsafeResultMap
+          }
+
+          public var __typename: String {
+            get {
+              return resultMap["__typename"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "__typename")
+            }
+          }
+
+          /// Title for the set.
+          public var title: String {
+            get {
+              return resultMap["title"]! as! String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "title")
+            }
+          }
+
+          /// Optional description for the set.
+          public var description: String? {
+            get {
+              return resultMap["description"] as? String
+            }
+            set {
+              resultMap.updateValue(newValue, forKey: "description")
+            }
+          }
+
+          /// The user who created the set.
+          public var creatorUser: CreatorUser {
+            get {
+              return CreatorUser(unsafeResultMap: resultMap["creatorUser"]! as! ResultMap)
+            }
+            set {
+              resultMap.updateValue(newValue.resultMap, forKey: "creatorUser")
+            }
+          }
+
+          public var fragments: Fragments {
+            get {
+              return Fragments(unsafeResultMap: resultMap)
+            }
+            set {
+              resultMap += newValue.resultMap
+            }
+          }
+
+          public struct Fragments {
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public var baseModelFields: BaseModelFields {
+              get {
+                return BaseModelFields(unsafeResultMap: resultMap)
+              }
+              set {
+                resultMap += newValue.resultMap
+              }
+            }
+          }
+
+          public struct CreatorUser: GraphQLSelectionSet {
+            public static let possibleTypes = ["User"]
+
+            public static let selections: [GraphQLSelection] = [
+              GraphQLField("__typename", type: .nonNull(.scalar(String.self))),
+              GraphQLFragmentSpread(BaseModelFields.self),
+              GraphQLField("username", type: .nonNull(.scalar(String.self))),
+              GraphQLField("email", type: .nonNull(.scalar(String.self))),
+            ]
+
+            public private(set) var resultMap: ResultMap
+
+            public init(unsafeResultMap: ResultMap) {
+              self.resultMap = unsafeResultMap
+            }
+
+            public init(id: GraphQLID, created: String, changed: String, isDeleted: Bool, username: String, email: String) {
+              self.init(unsafeResultMap: ["__typename": "User", "id": id, "created": created, "changed": changed, "isDeleted": isDeleted, "username": username, "email": email])
+            }
+
+            public var __typename: String {
+              get {
+                return resultMap["__typename"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "__typename")
+              }
+            }
+
+            /// User's unique handle.
+            public var username: String {
+              get {
+                return resultMap["username"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "username")
+              }
+            }
+
+            /// User's unique email address.
+            public var email: String {
+              get {
+                return resultMap["email"]! as! String
+              }
+              set {
+                resultMap.updateValue(newValue, forKey: "email")
+              }
+            }
+
+            public var fragments: Fragments {
+              get {
+                return Fragments(unsafeResultMap: resultMap)
+              }
+              set {
+                resultMap += newValue.resultMap
+              }
+            }
+
+            public struct Fragments {
+              public private(set) var resultMap: ResultMap
+
+              public init(unsafeResultMap: ResultMap) {
+                self.resultMap = unsafeResultMap
+              }
+
+              public var baseModelFields: BaseModelFields {
+                get {
+                  return BaseModelFields(unsafeResultMap: resultMap)
+                }
+                set {
+                  resultMap += newValue.resultMap
+                }
+              }
             }
           }
         }

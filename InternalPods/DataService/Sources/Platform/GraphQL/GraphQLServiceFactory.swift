@@ -5,12 +5,12 @@ public struct GraphQLServiceFactory: ServiceFactory {
 
     private let apolloClient: ApolloClient
 
-    public init(apolloClient: ApolloClient) {
-        self.apolloClient = apolloClient
+    public init(apiClient: APIClient) {
+        self.apolloClient = apiClient.apollo
     }
 
     public func createStudySetsService() -> StudySetsService {
-        return GraphQLService(apolloClient: apolloClient)
+        return GraphQLStudySetsService(apolloClient: apolloClient)
     }
 
     public func createStudyTermsService() -> StudyTermsService {

@@ -5,6 +5,7 @@ import CoreData
 internal class GraphQLService {
 
     internal let apolloClient: ApolloClient
+    internal let modelCache = ModelCache()
 
     /// Initialize a GraphQL service with an Apollo client.
     ///

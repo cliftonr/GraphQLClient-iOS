@@ -15,6 +15,8 @@ internal enum StoryboardScene {
   internal enum HomeViewController: StoryboardType {
     internal static let storyboardName = "HomeViewController"
 
+    internal static let initialScene = InitialSceneType<GraphQLClient_iOS.HomeViewController>(storyboard: HomeViewController.self)
+
     internal static let homeViewController = SceneType<GraphQLClient_iOS.HomeViewController>(storyboard: HomeViewController.self, identifier: "HomeViewController")
   }
   internal enum LaunchScreen: StoryboardType {
